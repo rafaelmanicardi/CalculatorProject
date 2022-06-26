@@ -1,3 +1,11 @@
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.text.NumberFormat;
+import java.text.ParseException;
+import java.util.Locale;
+
+import javafx.scene.control.Control;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -9,12 +17,16 @@
  * @author rafam
  */
 public class Tela extends javax.swing.JFrame {
+    private Controller calculadoraController;
+
+    private EnumOperacao ultimaOperacao;
 
     /**
      * Creates new form TelaPrincipal
      */
     public Tela() {
         initComponents();
+        calculadoraController = new Controller();
     }
 
     /**
@@ -249,6 +261,7 @@ public class Tela extends javax.swing.JFrame {
     }
 
     private void btnFecharActionPerformed(java.awt.event.ActionEvent evt) {
+        System.exit(0);
 
     }
 
@@ -258,7 +271,9 @@ public class Tela extends javax.swing.JFrame {
     }
 
     private void btnResultadoActionPerformed(java.awt.event.ActionEvent evt) {
-
+        calculadoraController.realizaOperacao(ultimaOperacao, stringToDouble(tfValor.getText()));
+        tfValor.setText(DoubleToString(calculadoraController.getTotal()));
+        
     }
 
     private void btnMaisMenosActionPerformed(java.awt.event.ActionEvent evt) {
@@ -276,6 +291,8 @@ public class Tela extends javax.swing.JFrame {
     }
 
     private void btnACActionPerformed(java.awt.event.ActionEvent evt) {
+        limpa();
+        calculadoraController.zerar();
         
     }
 
@@ -284,46 +301,84 @@ public class Tela extends javax.swing.JFrame {
     }
 
     private void btnDivisaoActionPerformed(java.awt.event.ActionEvent evt) {
-      
+        calculadoraController.realizaOperacao(EnumOperacao.DIVISAO, stringToDouble(tfValor.getText()));
+        ultimaOperacao = EnumOperacao.DIVISAO;
+        limpa();
+    }
+
+
+    private String DoubleToString(Double numero){
+        if (numero != null){
+            DecimalFormat formato = new DecimalFormat("##,###,###,##0.00", new DecimalFormatSymbols(new Locale("pt","BR")));
+            formato.setParseBigDecimal(true);
+            return formato.format(numero);
+        }
+        return "";
+
+    }
+
+    private Double stringToDouble(String numero){
+        NumberFormat nf = NumberFormat.getInstance();
+        Double dv = null;
+        try {
+            dv = nf.parse(numero).doubleValue();
+        } catch(ParseException ex){
+
+        }
+        return dv;
     }
 
     private void btn8valueActionPerformed(java.awt.event.ActionEvent evt) {
+        digita("8");
         
     }
 
     private void btn9valueActionPerformed(java.awt.event.ActionEvent evt) {
+        digita("9");
       
     }
 
     private void btnMultiplicacaoActionPerformed(java.awt.event.ActionEvent evt) {
+        calculadoraController.realizaOperacao(EnumOperacao.MULTIPLICACAO, stringToDouble(tfValor.getText()));
+        ultimaOperacao = EnumOperacao.MULTIPLICACAO;
+        limpa();
         
     }
 
     private void btn4valueActionPerformed(java.awt.event.ActionEvent evt) {
-        
+        digita("4");
+    }    
 
     private void btn5valueActionPerformed(java.awt.event.ActionEvent evt) {
+        digita("5");
     
     }
     private void btn6valueActionPerformed(java.awt.event.ActionEvent evt) {
+        digita("6");
         
     }
 
-    private void btnSubtracaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubtracaoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnSubtracaoActionPerformed
+    private void btnSubtracaoActionPerformed(java.awt.event.ActionEvent evt) {
+        calculadoraController.realizaOperacao(EnumOperacao.SUBTRACAO, stringToDouble(tfValor.getText()));
+        ultimaOperacao = EnumOperacao.SUBTRACAO;
+        limpa();
+        
+    }
 
-    private void btn2valueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2valueActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn2valueActionPerformed
+    private void btn2valueActionPerformed(java.awt.event.ActionEvent evt) {
+        digita("2");
+    }
 
-    private void btn3valueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn3valueActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn3valueActionPerformed
+    private void btn3valueActionPerformed(java.awt.event.ActionEvent evt) {
+        digita("3");
+    }
 
-    private void btnAdicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicaoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnAdicaoActionPerformed
+    private void btnAdicaoActionPerformed(java.awt.event.ActionEvent evt) {
+        calculadoraController.realizaOperacao(EnumOperacao.SOMA, stringToDouble(tfValor.getText()));
+        ultimaOperacao = EnumOperacao.SOMA;
+        limpa();
+        
+    }
 
     private void digita(String caractere){
         if(tfValor.getText().equals("0,00")){
@@ -335,6 +390,10 @@ public class Tela extends javax.swing.JFrame {
         }
     }
 }    
+    private void limpa(){
+        tfValor.setText("0,00");
+
+    }
 
     /**
      * @param args the command line arguments
