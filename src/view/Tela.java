@@ -273,7 +273,7 @@ public class Tela extends javax.swing.JFrame {
     private void btnResultadoActionPerformed(java.awt.event.ActionEvent evt) {
         calculadoraController.realizaOperacao(ultimaOperacao, stringToDouble(tfValor.getText()));
         tfValor.setText(DoubleToString(calculadoraController.getTotal()));
-        
+
     }
 
     private void btnMaisMenosActionPerformed(java.awt.event.ActionEvent evt) {
