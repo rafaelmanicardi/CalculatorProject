@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package view;
+
 
 /**
  *
@@ -45,7 +45,7 @@ public class Tela extends javax.swing.JFrame {
         btn3value = new javax.swing.JButton();
         btnAdicao = new javax.swing.JButton();
         btn0value = new javax.swing.JButton();
-        btnPonto = new javax.swing.JButton();
+        btnVirgula = new javax.swing.JButton();
         btnFechar = new javax.swing.JButton();
         btnResultado = new javax.swing.JButton();
 
@@ -61,15 +61,35 @@ public class Tela extends javax.swing.JFrame {
         jPanel1.setLayout(new java.awt.GridLayout(5, 4));
 
         btnAC.setText("AC");
+        btnAC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnACActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnAC);
 
         btnMaisMenos.setText("+/-");
+        btnMaisMenos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMaisMenosActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnMaisMenos);
 
         btnPorcentagem.setText("%");
+        btnPorcentagem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPorcentagemActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnPorcentagem);
 
         btnDivisao.setText("/");
+        btnDivisao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDivisaoActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnDivisao);
 
         btn7value.setText("7");
@@ -81,24 +101,59 @@ public class Tela extends javax.swing.JFrame {
         jPanel1.add(btn7value);
 
         btn8value.setText("8");
+        btn8value.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn8valueActionPerformed(evt);
+            }
+        });
         jPanel1.add(btn8value);
 
         btn9value.setText("9");
+        btn9value.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn9valueActionPerformed(evt);
+            }
+        });
         jPanel1.add(btn9value);
 
         btnMultiplicacao.setText("*");
+        btnMultiplicacao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMultiplicacaoActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnMultiplicacao);
 
         btn4value.setText("4");
+        btn4value.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn4valueActionPerformed(evt);
+            }
+        });
         jPanel1.add(btn4value);
 
         btn5value.setText("5");
+        btn5value.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn5valueActionPerformed(evt);
+            }
+        });
         jPanel1.add(btn5value);
 
         btn6value.setText("6");
+        btn6value.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn6valueActionPerformed(evt);
+            }
+        });
         jPanel1.add(btn6value);
 
         btnSubtracao.setText("-");
+        btnSubtracao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSubtracaoActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnSubtracao);
 
         btn1value.setText("1");
@@ -110,19 +165,44 @@ public class Tela extends javax.swing.JFrame {
         jPanel1.add(btn1value);
 
         btn2value.setText("2");
+        btn2value.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn2valueActionPerformed(evt);
+            }
+        });
         jPanel1.add(btn2value);
 
         btn3value.setText("3");
+        btn3value.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn3valueActionPerformed(evt);
+            }
+        });
         jPanel1.add(btn3value);
 
         btnAdicao.setText("+");
+        btnAdicao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdicaoActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnAdicao);
 
         btn0value.setText("0");
+        btn0value.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn0valueActionPerformed(evt);
+            }
+        });
         jPanel1.add(btn0value);
 
-        btnPonto.setText(".");
-        jPanel1.add(btnPonto);
+        btnVirgula.setText(",");
+        btnVirgula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVirgulaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnVirgula);
 
         btnFechar.setText("Fechar");
         btnFechar.addActionListener(new java.awt.event.ActionListener() {
@@ -133,6 +213,11 @@ public class Tela extends javax.swing.JFrame {
         jPanel1.add(btnFechar);
 
         btnResultado.setText("=");
+        btnResultado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnResultadoActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnResultado);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -159,21 +244,97 @@ public class Tela extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btn1valueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1valueActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn1valueActionPerformed
+    private void btn1valueActionPerformed(java.awt.event.ActionEvent evt) {
+        digita("1");
+    }
 
-    private void btnFecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFecharActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnFecharActionPerformed
+    private void btnFecharActionPerformed(java.awt.event.ActionEvent evt) {
 
-    private void btn7valueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn7valueActionPerformed
+    }
+
+    private void btn7valueActionPerformed(java.awt.event.ActionEvent evt) {
+        digita("7");
+        
+    }
+
+    private void btnResultadoActionPerformed(java.awt.event.ActionEvent evt) {
+
+    }
+
+    private void btnMaisMenosActionPerformed(java.awt.event.ActionEvent evt) {
+       
+    }
+
+    private void btn0valueActionPerformed(java.awt.event.ActionEvent evt) {
+        digita("0");
+
+    }
+
+    private void btnVirgulaActionPerformed(java.awt.event.ActionEvent evt) {
+        digita(",");
+    
+    }
+
+    private void btnACActionPerformed(java.awt.event.ActionEvent evt) {
+        
+    }
+
+    private void btnPorcentagemActionPerformed(java.awt.event.ActionEvent evt) {
+      
+    }
+
+    private void btnDivisaoActionPerformed(java.awt.event.ActionEvent evt) {
+      
+    }
+
+    private void btn8valueActionPerformed(java.awt.event.ActionEvent evt) {
+        
+    }
+
+    private void btn9valueActionPerformed(java.awt.event.ActionEvent evt) {
+      
+    }
+
+    private void btnMultiplicacaoActionPerformed(java.awt.event.ActionEvent evt) {
+        
+    }
+
+    private void btn4valueActionPerformed(java.awt.event.ActionEvent evt) {
+        
+
+    private void btn5valueActionPerformed(java.awt.event.ActionEvent evt) {
+    
+    }
+    private void btn6valueActionPerformed(java.awt.event.ActionEvent evt) {
+        
+    }
+
+    private void btnSubtracaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubtracaoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btn7valueActionPerformed
+    }//GEN-LAST:event_btnSubtracaoActionPerformed
+
+    private void btn2valueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2valueActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn2valueActionPerformed
+
+    private void btn3valueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn3valueActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn3valueActionPerformed
+
+    private void btnAdicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicaoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAdicaoActionPerformed
 
     private void digita(String caractere){
-        tfValor
+        if(tfValor.getText().equals("0,00")){
+            tfValor.setText(caractere);
+        }else{
+            if(caractere.equals(",") && tfValor.getText().contains(",")){
+        }   else {
+            tfValor.setText(tfValor.getText().concat(caractere));
+        }
     }
+}    
 
     /**
      * @param args the command line arguments
@@ -228,7 +389,7 @@ public class Tela extends javax.swing.JFrame {
     private javax.swing.JButton btnFechar;
     private javax.swing.JButton btnMaisMenos;
     private javax.swing.JButton btnMultiplicacao;
-    private javax.swing.JButton btnPonto;
+    private javax.swing.JButton btnVirgula;
     private javax.swing.JButton btnPorcentagem;
     private javax.swing.JButton btnResultado;
     private javax.swing.JButton btnSubtracao;
